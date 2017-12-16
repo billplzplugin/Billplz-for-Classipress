@@ -93,9 +93,11 @@ class Classi_Billplz extends APP_Gateway {
     }
 
     protected function redirect($url) {
+
         if (!headers_sent()) {
             wp_redirect(esc_url_raw($url));
-            wp_die();
+            exit;
+            //wp_die();
         } else {
             //----------------------------------------------------------------//
             $ready = "If you are not redirected, please click <a href=" . '"' . $url . '"' . " target='_self'>Here</a><br />"
